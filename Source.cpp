@@ -9,10 +9,11 @@ void slowPrintString
 int main(void)
 {	
 	std::string Title = "\"Life\" John Conway's Math Game",
+		Time = "Enter count generations : ",
 		Width	= "Enter the width Space : ",
 		Height	= "Enter the height Space : ";
 
-	size_t width, height;
+	size_t width, height, time;
 
 	do {
 		std::cout << "------------------------------------------------------------------------------------------------------------------------" << std::endl;
@@ -31,6 +32,11 @@ int main(void)
 		slowPrintString(Height, 30);
 		std::cin >> height;
 
+		std::cout << "---------------------------|\n";
+
+		slowPrintString(Time, 30);
+		std::cin >> time;
+
 		system("cls");
 	} while (width < 20 || width > 120 || height < 10 || height > 29);
 
@@ -38,7 +44,7 @@ int main(void)
 
 	u.printUniverse();
 
-	while (true) {
+	for (size_t i = 0; i < time - 1; ++i) {
 		u.oneGeneration();
 
 		u.printUniverse();
